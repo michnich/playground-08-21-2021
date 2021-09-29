@@ -1,0 +1,23 @@
+<div class="container-md mt-5">
+  <h1>Login</h1>
+  <span class="k-icon k-i-loading" *ngIf="loading"></span>
+  <form #form="ngForm" (submit)="submit(form)">
+    <!-- EMAIL ADDRESS -->
+    <kendo-formfield>
+      <kendo-label for="email">Email Address</kendo-label>
+      <kendo-textbox type="email" [(ngModel)]="user.email" name="email" #email required></kendo-textbox>
+    </kendo-formfield>
+
+    <!-- PASSWORD -->
+    <kendo-formfield>
+      <kendo-label for="password">Password</kendo-label>
+      <!-- password typing wasn't working with kendo-textbox -->
+      <input kendoTextBox type="password" [(ngModel)]="user.password" name="password" #password required />
+    </kendo-formfield>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="mt-2">
+      <button class="k-button k-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+</div>
